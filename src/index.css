@@ -1,3 +1,5 @@
+@import "@fontsource/open-sans";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -61,9 +63,14 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply font-publicSans;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-bg text-text dark:bg-darkBg dark:text-darkText;
+  }
+  @font-face {
+    font-family: "Nasa";
+    src: local("Nasa"), url("./assets/fonts/Nasa.ttf");
+    font-weight: 700;
   }
 }

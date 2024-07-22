@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "../theme-toggle";
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -13,12 +14,23 @@ const NavigationMenu = React.forwardRef<
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
-      "relative z-10 flex rounded-base font-bold border-border dark:border-darkBorder border-2 p-1 bg-main flex-1 items-center justify-center dark:bg-darkBg bg-bg",
+      "relative flex rounded-base font-bold border-border dark:border-darkBorder border-2 py-2 px-16 bg-main items-center justify-between dark:bg-darkBg bg-bg",
       className
     )}
     {...props}
   >
-    {children}
+    <div className="font-nasa">Waning Gibbon</div>
+    <div
+      className={cn(
+        "flex max-w-max bg-main flex-1 items-center justify-center",
+        className
+      )}
+    >
+      {children}
+    </div>
+    <div>
+      <ThemeToggle></ThemeToggle>
+    </div>
     <NavigationMenuViewport />
   </NavigationMenuPrimitive.Root>
 ));
@@ -42,7 +54,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
 const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-10 w-max items-center justify-center text-text rounded-md bg-main px-4 py-2 text-sm font-bold transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+  "group inline-flex h-10 w-max items-center justify-center text-inherit rounded-md bg-main px-4 py-2 text-sm font-bold transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50"
 );
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -88,7 +100,7 @@ const NavigationMenuViewport = React.forwardRef<
   <div className={cn("absolute left-0 top-full flex justify-center")}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "origin-top-center relative mt-1.5 font-bold h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-base border-2 border-border dark:border-darkBorder bg-main text-black data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
+        "origin-top-center relative mt-1.5 font-bold h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-base border-2 border-border dark:border-darkBorder bg-main  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
         className
       )}
       ref={ref}

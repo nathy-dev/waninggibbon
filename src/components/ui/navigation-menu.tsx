@@ -5,13 +5,17 @@ import { ChevronDown } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "../theme-toggle";
-import { Hamburger } from "../hamburger";
+
+interface Props
+  extends React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root> {
+  logo: React.ReactNode;
+  cta: React.ReactNode;
+}
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
->(({ className, children, ...props }, ref) => (
+  Props
+>(({ className, children, logo, cta, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
@@ -20,19 +24,9 @@ const NavigationMenu = React.forwardRef<
     )}
     {...props}
   >
-    <div className="font-nasa">Waning Gibbon</div>
-    <div
-      className={cn(
-        "hidden md:flex max-w-max bg-main flex-1 items-center justify-center",
-        className
-      )}
-    >
-      {children}
-    </div>
-    <Hamburger>{children}</Hamburger>
-    <div>
-      <ThemeToggle></ThemeToggle>
-    </div>
+    {logo}
+    {children}
+    {cta}
     <NavigationMenuViewport />
   </NavigationMenuPrimitive.Root>
 ));

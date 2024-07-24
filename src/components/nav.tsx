@@ -10,6 +10,8 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { ThemeToggle } from "./theme-toggle";
+import { Hamburger } from "./hamburger";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -32,40 +34,50 @@ const components: { title: string; href: string; description: string }[] = [
 
 export const Nav = () => {
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Games</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <p className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              Check back later... 👀
-            </p>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Team</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <a href="/docs">
+    <NavigationMenu
+      logo={<div className="font-nasa">Waning Gibbon</div>}
+      cta={
+        <div className="flex flex-row gap-2">
+          <ThemeToggle />
+          <div className="md:hidden">
+            <Hamburger>Test</Hamburger>
+          </div>
+        </div>
+      }
+    >
+      <div className="hidden md:flex max-w-max bg-main flex-1 items-center justify-center">
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Games</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <p className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                Check back later... 👀
+              </p>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Team</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                {components.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    title={component.title}
+                    href={component.href}
+                  >
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Contact
             </NavigationMenuLink>
-          </a>
-        </NavigationMenuItem>
-      </NavigationMenuList>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </div>
     </NavigationMenu>
   );
 };

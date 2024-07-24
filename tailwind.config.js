@@ -14,7 +14,7 @@ module.exports = {
       colors: {
         mars: "#FC3D21",
         saturn: "#0B3D91",
-        luna: "#FAFEA8",
+        luna: "#faf9d0",
         overlay: "rgba(0,0,0,0.8)",
         // background color overlay for alert dialogs, modals, etc.
 

@@ -6,6 +6,7 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "../theme-toggle";
+import { Hamburger } from "../hamburger";
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -14,7 +15,7 @@ const NavigationMenu = React.forwardRef<
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
-      "relative z-10 flex rounded-base font-bold border-border dark:border-darkBorder border-2 py-2 px-4 sm:px-8 md:px-16 bg-main items-center justify-between dark:bg-darkBg bg-bg",
+      "relative z-20 flex rounded-base font-bold border-border dark:border-darkBorder border-2 py-2 px-4 sm:px-8 md:px-16 bg-main items-center justify-between dark:bg-darkBg bg-bg",
       className
     )}
     {...props}
@@ -22,12 +23,13 @@ const NavigationMenu = React.forwardRef<
     <div className="font-nasa">Waning Gibbon</div>
     <div
       className={cn(
-        "flex max-w-max bg-main flex-1 items-center justify-center",
+        "hidden md:flex max-w-max bg-main flex-1 items-center justify-center",
         className
       )}
     >
       {children}
     </div>
+    <Hamburger>{children}</Hamburger>
     <div>
       <ThemeToggle></ThemeToggle>
     </div>
@@ -122,7 +124,7 @@ const NavigationMenuIndicator = React.forwardRef<
   <NavigationMenuPrimitive.Indicator
     ref={ref}
     className={cn(
-      "top-full z-[1] flex h-1.5 items-end font-bold justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in",
+      "top-full z-20 flex h-1.5 items-end font-bold justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in",
       className
     )}
     {...props}

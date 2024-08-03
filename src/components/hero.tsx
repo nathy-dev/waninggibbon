@@ -7,7 +7,7 @@ export const Hero = () => {
       <div className="flex flex-col gap-8 items-start lg:items-center justify-center text-center">
         <h1 className="font-nasa text-7xl md:text-9xl">Wanning Gibbon</h1>
         <p className="font-bold w-full">
-          Game-making space monkeys, extremely based in Mesa, AZ 🌵
+          Making games and taking names. Extremely based in Mesa, AZ.
         </p>
       </div>
     </section>

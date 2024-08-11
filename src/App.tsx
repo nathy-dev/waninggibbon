@@ -6,8 +6,10 @@ import { ThemeProvider } from "./providers/theme-provider";
 function App() {
   return (
     <ThemeProvider>
-      <Nav />
-      <Home />
+      <div className="w-full h-full">
+        <Nav />
+        <Home />
+      </div>
     </ThemeProvider>
   );
 }
